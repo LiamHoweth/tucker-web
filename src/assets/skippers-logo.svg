@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" fill="none" role="img" aria-labelledby="skippersTitle skippersDesc">
+  <title id="skippersTitle">Skippers Lawn Service logo</title>
+  <desc id="skippersDesc">A stylized green grass icon above the words Skippers Lawn Service.</desc>
+  <defs>
+    <linearGradient id="fadeLine" x1="120" y1="0" x2="580" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F8A2D" stop-opacity="0" />
+      <stop offset=".2" stop-color="#4F8A2D" />
+      <stop offset=".8" stop-color="#4F8A2D" />
+      <stop offset="1" stop-color="#4F8A2D" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <path d="M128 118H572" stroke="url(#fadeLine)" stroke-width="5" stroke-linecap="round" />
+  <path d="M143 232H236" stroke="#4F8A2D" stroke-width="5" stroke-linecap="round" />
+  <path d="M464 232H557" stroke="#4F8A2D" stroke-width="5" stroke-linecap="round" />
+  <path d="M329 113C329 83 340 53 367 28C351 58 347 85 347 113H329Z" fill="#4F8A2D" />
+  <path d="M309 113C309 93 316 72 333 52C323 72 320 92 320 113H309Z" fill="#6C9E39" />
+  <path d="M287 113C287 98 293 82 306 68C298 84 295 98 295 113H287Z" fill="#8DBB67" />
+  <path d="M351 113C351 95 357 78 371 66C363 82 360 96 360 113H351Z" fill="#6C9E39" />
+  <text x="350" y="210" text-anchor="middle" font-family="Barlow, 'Segoe UI', sans-serif" font-size="92" font-weight="800" letter-spacing="3" fill="#1F5D2F">SKIPPERS</text>
+  <text x="350" y="246" text-anchor="middle" dominant-baseline="hanging" font-family="Karla, 'Segoe UI', sans-serif" font-size="54" font-weight="500" fill="#5E9331">Lawn Service</text>
+</svg>
