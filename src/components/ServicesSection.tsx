@@ -34,9 +34,10 @@ export function ServicesSection({ services, quoteHref }: ServicesSectionProps) {
                   className="service-card__image"
                   src={service.imageSrc}
                   alt={service.imageAlt}
+                  loading="lazy"
                   style={{ objectPosition: service.imagePosition ?? 'center center' }}
                 />
-                <span className="service-card__tag">Skippers Service</span>
+                <span className="service-card__tag">{service.title}</span>
               </div>
               <div className="service-card__body">
                 <div className="info-card__icon-wrap">

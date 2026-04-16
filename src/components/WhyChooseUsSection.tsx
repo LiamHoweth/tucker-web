@@ -15,6 +15,7 @@ type WhyChooseUsSectionProps = {
     imageSrc: string;
     imageAlt: string;
     imagePosition?: string;
+    imageClass?: string;
     badge: string;
   };
 };
@@ -33,9 +34,10 @@ export function WhyChooseUsSection({ reasons, feature }: WhyChooseUsSectionProps
           <article className="trust-feature-card">
             <div className="trust-feature-card__media">
               <img
-                className="trust-feature-card__image"
+                className={`trust-feature-card__image${feature.imageClass ? ` ${feature.imageClass}` : ''}`}
                 src={feature.imageSrc}
                 alt={feature.imageAlt}
+                loading="lazy"
                 style={{ objectPosition: feature.imagePosition ?? 'center center' }}
               />
               <span className="trust-feature-card__badge">{feature.badge}</span>

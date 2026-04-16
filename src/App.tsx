@@ -7,10 +7,14 @@ import { Hero } from './components/Hero';
 import { PricingSection } from './components/PricingSection';
 import { ServiceAreaSection } from './components/ServiceAreaSection';
 import { ServicesSection } from './components/ServicesSection';
+import { TestimonialsSection } from './components/TestimonialsSection';
 import { WhyChooseUsSection } from './components/WhyChooseUsSection';
 import { siteContent } from './content/siteContent';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
 function App() {
+  const reveal = useScrollReveal({ threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
   return (
     <>
       <Header
@@ -27,31 +31,49 @@ function App() {
           serviceAreas={siteContent.serviceAreas}
           services={siteContent.services}
         />
-        <ServicesSection
-          services={siteContent.services}
-          quoteHref={siteContent.contact.quoteHref}
-        />
-        <WhyChooseUsSection
-          reasons={siteContent.reasons}
-          feature={siteContent.trustFeature}
-        />
-        <AboutSection about={siteContent.about} />
-        <GallerySection galleryItems={siteContent.galleryItems} />
-        <PricingSection
-          pricing={siteContent.pricing}
-          contact={siteContent.contact}
-          ctaLabels={siteContent.ctaLabels}
-        />
-        <ServiceAreaSection
-          serviceAreas={siteContent.serviceAreas}
-          serviceAreaNote={siteContent.serviceAreaNote}
-          contact={siteContent.contact}
-        />
-        <ContactSection
-          business={siteContent.business}
-          contact={siteContent.contact}
-          ctaLabels={siteContent.ctaLabels}
-        />
+        <div ref={reveal}>
+          <ServicesSection
+            services={siteContent.services}
+            quoteHref={siteContent.contact.quoteHref}
+          />
+        </div>
+        <div ref={reveal}>
+          <WhyChooseUsSection
+            reasons={siteContent.reasons}
+            feature={siteContent.trustFeature}
+          />
+        </div>
+        <div ref={reveal}>
+          <TestimonialsSection testimonials={siteContent.testimonials} />
+        </div>
+        <div ref={reveal}>
+          <AboutSection about={siteContent.about} />
+        </div>
+        <div ref={reveal}>
+          <GallerySection galleryItems={siteContent.galleryItems} />
+        </div>
+        <div ref={reveal}>
+          <PricingSection
+            pricing={siteContent.pricing}
+            contact={siteContent.contact}
+            ctaLabels={siteContent.ctaLabels}
+          />
+        </div>
+        <div ref={reveal}>
+          <ServiceAreaSection
+            serviceAreas={siteContent.serviceAreas}
+            serviceAreaNote={siteContent.serviceAreaNote}
+            contact={siteContent.contact}
+          />
+        </div>
+        <div ref={reveal}>
+          <ContactSection
+            business={siteContent.business}
+            contact={siteContent.contact}
+            ctaLabels={siteContent.ctaLabels}
+            contactFormServices={siteContent.contactFormServices}
+          />
+        </div>
       </main>
       <Footer
         business={siteContent.business}

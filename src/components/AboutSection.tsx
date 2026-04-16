@@ -45,6 +45,7 @@ export function AboutSection({ about }: AboutSectionProps) {
             className="about-section__image"
             src={about.photoSrc}
             alt={about.photoAlt}
+            loading="lazy"
             style={{ objectPosition: about.photoPosition ?? 'center center' }}
           />
           <div className="about-section__media-note">

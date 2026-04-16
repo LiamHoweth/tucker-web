@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ActionLink } from './ActionLink';
 import { Icon } from './Icon';
 
@@ -20,6 +20,21 @@ export function Header({ business, navigation, quoteHref, callHref }: HeaderProp
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
+
+  // Close menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && menuOpen) setMenuOpen(false);
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [menuOpen]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   return (
     <header className="site-header">
@@ -56,6 +71,13 @@ export function Header({ business, navigation, quoteHref, callHref }: HeaderProp
           </button>
         </div>
       </div>
+
+      {/* Mobile menu backdrop */}
+      <div
+        className={`mobile-nav__backdrop ${menuOpen ? 'mobile-nav__backdrop--visible' : ''}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
 
       <div className={`mobile-nav ${menuOpen ? 'mobile-nav--open' : ''}`} id="mobile-nav">
         <nav className="mobile-nav__panel container" aria-label="Mobile navigation">

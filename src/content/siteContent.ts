@@ -30,10 +30,11 @@ type Reason = {
 type GalleryItem = {
   title: string;
   description: string;
-  badge: string;
+  badge?: string;
   imageSrc: string;
   imageAlt: string;
   objectPosition?: string;
+  imageClass?: string;
 };
 
 const phoneRaw = '4058349623';
@@ -59,7 +60,7 @@ export const siteContent = {
     heroImagePosition: 'center center',
     heroSecondaryImageSrc: heroLawnPhoto,
     heroSecondaryImageAlt: 'Freshly mowed backyard with clean grass lines near a fence',
-    heroSecondaryImagePosition: 'center 34%',
+    heroSecondaryImagePosition: 'center 38%',
     trustItems: ['Local and dependable', 'Fast response times', 'Free estimates'],
     serviceSummary: 'Mowing, weed eating, and leaf cleanup done right.',
   },
@@ -74,7 +75,7 @@ export const siteContent = {
       'The fastest way to get your free quote is to call or text. We keep the process simple, low-pressure, and easy to schedule.',
     photoSrc: oakLawnPhoto,
     photoAlt: 'Freshly cut lawn at sunset near a home and shade tree',
-    photoPosition: 'center 38%',
+    photoPosition: 'center 40%',
   },
   ctaLabels: {
     call: 'Call Now',
@@ -108,7 +109,7 @@ export const siteContent = {
       icon: 'trimmer',
       imageSrc: heroLawnPhoto,
       imageAlt: 'Freshly trimmed backyard edge line along a wooden fence',
-      imagePosition: 'center 35%',
+      imagePosition: 'center 38%',
     },
     {
       title: 'Leaf Cleanup',
@@ -161,6 +162,7 @@ export const siteContent = {
     imageSrc: cleanFinishPhoto,
     imageAlt: 'Freshly maintained lawn and fence line under a bright blue sky',
     imagePosition: 'center 46%',
+    imageClass: 'img-horizon-fix',
     badge: 'Trusted Local Service',
   },
   about: {
@@ -177,7 +179,7 @@ export const siteContent = {
     ],
     photoSrc: heroLawnPhoto,
     photoAlt: 'Clean backyard lawn with a fresh cut near a fence line',
-    photoPosition: 'center 35%',
+    photoPosition: 'center 38%',
   },
   galleryItems: [
     {
@@ -191,23 +193,21 @@ export const siteContent = {
     {
       title: 'Fence Line Cleanup',
       description: 'Backyard mowing and trimming finished cleanly along the fence and gate line.',
-      badge: 'Backyard Cut',
       imageSrc: heroLawnPhoto,
       imageAlt: 'Mowed backyard with fresh grass lines along a wooden fence',
-      objectPosition: 'center 32%',
+      objectPosition: 'center 38%',
     },
     {
-      title: 'Clean Finish Around The Tree Line',
-      description: 'A tidy lawn pass that keeps larger open areas looking even and maintained.',
-      badge: 'Large Open Yard',
+      title: 'Clean Cut Along The Fence Line',
+      description: 'A tidy pass beside the fence that keeps the open yard looking even and well cared for.',
       imageSrc: cleanFinishPhoto,
       imageAlt: 'Freshly cut grassy yard beside a fence under a bright blue sky',
       objectPosition: 'center 45%',
+      imageClass: 'img-horizon-fix',
     },
     {
       title: 'Evening Lawn Finish',
       description: 'A smooth finish that still looks polished as the sun drops and shadows settle in.',
-      badge: 'Sunset Cut',
       imageSrc: oakLawnPhoto,
       imageAlt: 'Well-kept lawn at sunset beside a home and large shade tree',
       objectPosition: 'center 40%',
@@ -234,6 +234,30 @@ export const siteContent = {
     'Lexington',
   ],
   serviceAreaNote: 'Not sure if we service your area? Reach out and ask.',
+  testimonials: [
+    {
+      quote:
+        'They showed up on time every single week. My yard has never looked this good. Highly recommend Skippers to anyone in the area.',
+      name: 'James R.',
+      location: 'Chickasha, OK',
+      rating: 5,
+    },
+    {
+      quote:
+        'Super easy to schedule and the crew does clean, professional work every time. The detail on the edging is what really stands out.',
+      name: 'Michelle T.',
+      location: 'Blanchard, OK',
+      rating: 5,
+    },
+    {
+      quote:
+        'Called for a quote on a Monday, had my yard mowed by Wednesday. Fair price, great results, and friendly service. Will keep using them.',
+      name: 'David L.',
+      location: 'Purcell, OK',
+      rating: 5,
+    },
+  ],
+  contactFormServices: ['Mowing', 'Weed Eating', 'Leaf Cleanup', 'Multiple Services', 'Not Sure'],
 } as const;
 
 export type SiteContent = typeof siteContent;

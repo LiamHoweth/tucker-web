@@ -1,4 +1,5 @@
 import { ActionLink } from './ActionLink';
+import { ContactForm } from './ContactForm';
 import { Icon } from './Icon';
 import { SectionHeading } from './SectionHeading';
 
@@ -20,9 +21,10 @@ type ContactSectionProps = {
     text: string;
     quote: string;
   };
+  contactFormServices: ReadonlyArray<string>;
 };
 
-export function ContactSection({ business, contact, ctaLabels }: ContactSectionProps) {
+export function ContactSection({ business, contact, ctaLabels, contactFormServices }: ContactSectionProps) {
   return (
     <section className="contact-section" id="contact">
       <div className="container split-layout split-layout--contact">
@@ -32,17 +34,18 @@ export function ContactSection({ business, contact, ctaLabels }: ContactSectionP
             title="Get Your Free Quote"
             description={contact.leadMessage}
           />
-          <p className="contact-section__body">
-            If you are ready to talk through mowing, weed eating, or leaf cleanup, call or text and
-            we will help you take the next step without the hassle.
-          </p>
 
+          <ContactForm services={contactFormServices} />
+        </div>
+
+        <div className="contact-section__sidebar">
           <div className="contact-section__photo-card">
             <img
               className="contact-section__photo"
               src={contact.photoSrc}
               alt={contact.photoAlt}
               style={{ objectPosition: contact.photoPosition ?? 'center center' }}
+              loading="lazy"
             />
             <div className="contact-section__photo-note">
               <p className="contact-section__photo-label">Fast response and easy scheduling</p>
@@ -52,9 +55,8 @@ export function ContactSection({ business, contact, ctaLabels }: ContactSectionP
               </p>
             </div>
           </div>
-        </div>
 
-        <aside className="contact-card" aria-label={`${business.name} contact options`}>
+          <aside className="contact-card" aria-label={`${business.name} contact options`}>
           <p className="contact-card__label">Call or text</p>
           <a className="contact-card__number" href={contact.callHref}>
             {contact.phoneDisplay}
@@ -92,6 +94,7 @@ export function ContactSection({ business, contact, ctaLabels }: ContactSectionP
             </p>
           </div>
         </aside>
+        </div>
       </div>
     </section>
   );

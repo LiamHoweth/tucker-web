@@ -4,10 +4,11 @@ import { SectionHeading } from './SectionHeading';
 type GalleryItem = {
   title: string;
   description: string;
-  badge: string;
+  badge?: string;
   imageSrc: string;
   imageAlt: string;
   objectPosition?: string;
+  imageClass?: string;
 };
 
 type GallerySectionProps = {
@@ -36,12 +37,13 @@ export function GallerySection({ galleryItems }: GallerySectionProps) {
             >
               <div className="gallery-card__media">
                 <img
-                  className="gallery-card__image"
+                  className={`gallery-card__image${featuredItem.imageClass ? ` ${featuredItem.imageClass}` : ''}`}
                   src={featuredItem.imageSrc}
                   alt={featuredItem.imageAlt}
+                  loading="lazy"
                 />
                 <div className="gallery-card__overlay">
-                  <span className="gallery-card__badge">{featuredItem.badge}</span>
+                  {featuredItem.badge && <span className="gallery-card__badge">{featuredItem.badge}</span>}
                   <h3 className="gallery-card__title">{featuredItem.title}</h3>
                   <p className="gallery-card__description">{featuredItem.description}</p>
                 </div>
@@ -57,8 +59,8 @@ export function GallerySection({ galleryItems }: GallerySectionProps) {
                 style={{ '--gallery-position': item.objectPosition ?? 'center center' } as CSSProperties}
               >
                 <div className="gallery-card__media">
-                  <img className="gallery-card__image" src={item.imageSrc} alt={item.imageAlt} />
-                  <span className="gallery-card__badge">{item.badge}</span>
+                  <img className={`gallery-card__image${item.imageClass ? ` ${item.imageClass}` : ''}`} src={item.imageSrc} alt={item.imageAlt} loading="lazy" />
+                  {item.badge && <span className="gallery-card__badge">{item.badge}</span>}
                 </div>
                 <div className="gallery-card__body">
                   <h3 className="gallery-card__title">{item.title}</h3>
